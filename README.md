@@ -1,5 +1,7 @@
 # React course 1
 
+## Allan BREUIL
+
 ## Getting started
 
 - Fork project to your personal repo
