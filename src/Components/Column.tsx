@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { useItemDrag } from "../Utilities/useItemDrag";
 import { useDrop } from "react-dnd";
 import { throttle } from "throttle-debounce-ts";
+import { isHidden } from "../Utilities/isHidden";
 
 
 //WAITED PROPS BY THE COMPONENT Column
@@ -30,19 +31,24 @@ export const Column = ({ text, id }: ColumnProps) => {
                 if(draggedItem.id === id) {
                     return
                 }
+
                 dispatch(moveList(draggedItem.id, id))
             }
         })
     })
     const {drag} = useItemDrag({type: "COLUMN", id, text})
-
     drag(drop(ref))
 
+
     return (
-        <ColumnContainer ref={ref}>
+        <ColumnContainer ref={ref}
+        isHidden={isHidden(draggedItem, 'COLUMN', id)}>
             <ColumnTitle>{text}</ColumnTitle>
             {tasks.map((task) => (
-                <Card text={task.text} key={task.id} id={task.id} />
+                <Card text={task.text}
+                      columnId={id}
+                      key={task.id}
+                      id={task.id} />
             ))}
 
             <AddNewItem

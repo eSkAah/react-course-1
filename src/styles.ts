@@ -11,16 +11,7 @@ align-items: flex-start;
   width: 100%;
 `
 
-//STYLE FOR THE TASKLIST
-export const ColumnContainer = styled.div `
-  background-color: #ebecf0;
-  width: 300px;
-  min-height: 40px;
-  margin-right: 20px;
-  border-radius: 3px;
-  padding: 8px 8px;
-  flex-grow: 0;
-`
+
 
 //STYLE FOR COLUMN TASKLIST CONTAINER
 export const ColumnTitle = styled.div`
@@ -28,16 +19,9 @@ export const ColumnTitle = styled.div`
     font-weight: bold;
 `
 
-//STYLE FOR CARDS
-export const CardContainer = styled.div`
-  background-color: #fff;
-  cursor: pointer;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem 1rem;
-  max-width: 300px;
-  border-radius: 3px;
-  box-shadow: #091e4240 0px 1px 0px 0px;
-`
+
+
+
 
 //USE IT FOR LIST AND TASKS BUTTON
 //DARK IF IT'S ON GREY BACKGROUND
@@ -89,4 +73,33 @@ export const NewItemInput = styled.input`
  width: 100%;
 `
 
+interface DragPreviewContainerProps {
+     isHidden?: boolean
+        isPreview?:boolean
+}
 
+export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
+ opacity: ${(props) => (props.isHidden ? 0.3 : 1)};
+`
+
+//STYLE FOR THE TASKLIST
+export const ColumnContainer = styled(DragPreviewContainer) `
+  background-color: #ebecf0;
+  width: 300px;
+  min-height: 40px;
+  margin-right: 20px;
+  border-radius: 3px;
+  padding: 8px 8px;
+  flex-grow: 0;
+`
+
+//STYLE FOR CARDS
+export const CardContainer = styled(DragPreviewContainer)`
+  background-color: #fff;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  max-width: 300px;
+  border-radius: 3px;
+  box-shadow: #091e4240 0px 1px 0px 0px;
+`

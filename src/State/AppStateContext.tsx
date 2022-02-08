@@ -17,7 +17,23 @@ const AppStateContext = createContext<AppStateContextProps>(
 )
 
 const appData: AppState = {
-     lists: [],
+     lists: [
+         {
+             id: "0",
+             text: "TO DO",
+             tasks: [{ id: "c0", text: "Lire 'React pour les nuls'" }]
+         },
+         {
+             id: "1",
+             text: "IN PROGRESS...",
+             tasks: [{ id: "c2", text: "Sortir le chien" }]
+         },
+         {
+             id: "2",
+             text: "DONE",
+             tasks: [{ id: "c3", text: "Apprendre la guitare" }]
+         }
+     ],
     draggedItem: null
 }
 

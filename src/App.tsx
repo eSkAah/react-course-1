@@ -8,14 +8,17 @@ export const App = () => {
     const { lists, dispatch } = useAppState()
 
      return (
-         <AppContainer>
-             {lists.map((list:any) => (
-                 <Column text={list.text} key={list.id} id={list.id} />
-             ))}
-             <AddNewItem
-                 onAdd={(text) => dispatch(addList(text))}
-                 toggleButtonText='+ ADD ANOTHER LIST'
-             />
-         </AppContainer>
+         <>
+             <AppContainer>
+                 {lists.map((list:any) => (
+                     <Column text={list.text} key={list.id} id={list.id} />
+                 ))}
+                 <AddNewItem
+                     onAdd={(text) => dispatch(addList(text))}
+                     toggleButtonText='+ ADD ANOTHER LIST'
+                 />
+             </AppContainer>
+         </>
+
      )
 }
